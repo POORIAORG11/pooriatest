@@ -374,7 +374,7 @@ async function vlessOverWSHandler(request) {
                         return;
                     }
                 }
-                // ["version", "附加信息长度 N"]
+                // ["version", "éå ä¿¡æ¯é¿åº¦ N"]
                 const vlessResponseHeader = new Uint8Array([vlessVersion[0], 0]);
                 const rawClientData = chunk.slice(rawDataIndex);
 
@@ -1131,7 +1131,7 @@ function generateRemark(index, port, address, cleanIPs, protocol, configType) {
         ? addressType = 'Clean IP'
         : addressType = isDomain(address) ? 'Domain': isIPv4(address) ? 'IPv4' : isIPv6(address) ? 'IPv6' : '';
 
-    return `💦 ${index} - ${protocol}${type} - ${addressType} : ${port}`;
+    return `★POORIA¦ ${index} - ${protocol}${type} - ${addressType} : ${port}`;
 }
 
 function isDomain(address) {
@@ -1665,34 +1665,34 @@ async function renderHomePage (env, hostName, fragConfigs) {
 	</head>
 	
 	<body>
-		<h1>POORIA Panel <span style="font-size: smaller;">${panelVersion}</span> 💦</h1>
+		<h1>POORIA Panel <span style="font-size: smaller;">${panelVersion}</span> ð¦</h1>
 		<div class="form-container">
             <form id="configForm">
-                <h2>VLESS/TROJAN SETTINGS ⚙️</h2>
+                <h2>VLESS/TROJAN SETTINGS âï¸</h2>
 				<div class="form-control">
-					<label for="remoteDNS">🌏 Remote DNS</label>
+					<label for="remoteDNS">ð Remote DNS</label>
 					<input type="url" id="remoteDNS" name="remoteDNS" value="${remoteDNS}" required>
 				</div>
 				<div class="form-control">
-					<label for="localDNS">🏚︄1�7 Local DNS</label>
+					<label for="localDNS">ðï¸1¤7 Local DNS</label>
 					<input type="text" id="localDNS" name="localDNS" value="${localDNS}"
 						pattern="^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)|localhost$"
 						title="Please enter a valid DNS IP Address or localhost!"  required>
 				</div>
 				<div class="form-control">
-					<label for="proxyIP">📍 Proxy IP</label>
+					<label for="proxyIP">ð Proxy IP</label>
 					<input type="text" id="proxyIP" name="proxyIP" value="${proxyIP}">
 				</div>
                 <div class="form-control">
-					<label for="outProxy">✈️ Chain Proxy</label>
+					<label for="outProxy">âï¸ Chain Proxy</label>
 					<input type="text" id="outProxy" name="outProxy" value="${outProxy}">
 				</div>
 				<div class="form-control">
-					<label for="cleanIPs">✄1�7 Clean IPs</label>
+					<label for="cleanIPs">â1¤7 Clean IPs</label>
 					<input type="text" id="cleanIPs" name="cleanIPs" value="${cleanIPs.replaceAll(",", " , ")}">
 				</div>
                 <div class="form-control">
-                    <label>🔎 IP Scanner</label>
+                    <label>ð IP Scanner</label>
                     <a href="https://scanner.github1.cloud/" id="scanner" name="scanner" target="_blank">
                         <button type="button" class="button">
                             Scan now
@@ -1701,23 +1701,23 @@ async function renderHomePage (env, hostName, fragConfigs) {
                     </a>
                 </div>
                 <div class="form-control">
-					<label for="customCdnAddrs">💀 Custom Addr</label>
+					<label for="customCdnAddrs">ð Custom Addr</label>
 					<input type="text" id="customCdnAddrs" name="customCdnAddrs" value="${customCdnAddrs.replaceAll(",", " , ")}">
 				</div>
                 <div class="form-control">
-					<label for="customCdnHost">💀 Custom Host</label> 
+					<label for="customCdnHost">ð Custom Host</label> 
 					<input type="text" id="customCdnHost" name="customCdnHost" value="${customCdnHost}">
 				</div>
                 <div class="form-control">
-					<label for="customCdnSni">💀 Custom SNI</label>
+					<label for="customCdnSni">ð Custom SNI</label>
 					<input type="text" id="customCdnSni" name="customCdnSni" value="${customCdnSni}">
 				</div>
                 <div class="form-control">
-					<label for="bestVLESSTrojanInterval">🔄 Best Interval</label>
+					<label for="bestVLESSTrojanInterval">ð Best Interval</label>
 					<input type="number" id="bestVLESSTrojanInterval" name="bestVLESSTrojanInterval" min="10" max="90" value="${bestVLESSTrojanInterval}">
 				</div>
                 <div class="form-control" style="padding-top: 10px;">
-					<label>⚙️ Protocols</label>
+					<label>âï¸ Protocols</label>
 					<div style="display: grid; grid-template-columns: 1fr 1fr; align-items: baseline; margin-top: 10px;">
                         <div style = "display: flex; justify-content: center; align-items: center;">
                             <input type="checkbox" id="vlessConfigs" name="vlessConfigs" onchange="handleProtocolChange(event)" style="margin: 0; grid-column: 2;" value="true" ${vlessConfigs ? 'checked' : ''}>
@@ -1745,9 +1745,9 @@ async function renderHomePage (env, hostName, fragConfigs) {
                         </tr>`}        
                     </table>
                 </div>
-                <h2>FRAGMENT SETTINGS ⚙️</h2>	
+                <h2>FRAGMENT SETTINGS âï¸</h2>	
 				<div class="form-control">
-					<label for="fragmentLengthMin">📐 Length</label>
+					<label for="fragmentLengthMin">ð Length</label>
 					<div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline;">
 						<input type="number" id="fragmentLengthMin" name="fragmentLengthMin" value="${lengthMin}" min="10" required>
 						<span style="text-align: center; white-space: pre;"> - </span>
@@ -1755,7 +1755,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
 					</div>
 				</div>
 				<div class="form-control">
-					<label for="fragmentIntervalMin">🕞 Interval</label>
+					<label for="fragmentIntervalMin">ð Interval</label>
 					<div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline;">
 						<input type="number" id="fragmentIntervalMin" name="fragmentIntervalMin"
     						value="${intervalMin}" max="30" required>
@@ -1765,7 +1765,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
 					</div>
 				</div>
                 <div class="form-control">
-                    <label for="fragmentPackets">📦 Packets</label>
+                    <label for="fragmentPackets">ð¦ Packets</label>
                     <div class="input-with-select">
                         <select id="fragmentPackets" name="fragmentPackets">
                             <option value="tlshello" ${fragmentPackets === 'tlshello' ? 'selected' : ''}>tlshello</option>
@@ -1776,7 +1776,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
                         </select>
                     </div>
                 </div>
-                <h2>ROUTING ⚙️</h2>
+                <h2>ROUTING âï¸</h2>
 				<div class="form-control" style="margin-bottom: 20px;">			
                     <div class="routing">
                         <input type="checkbox" id="block-ads" name="block-ads" style="margin: 0; grid-column: 2;" value="true" ${blockAds ? 'checked' : ''}>
@@ -1803,54 +1803,54 @@ async function renderHomePage (env, hostName, fragConfigs) {
                         <label for="block-udp-443">Block QUIC</label>
 					</div>
 				</div>
-                <h2>WARP SETTINGS ⚙️</h2>
+                <h2>WARP SETTINGS âï¸</h2>
 				<div class="form-control">
-                    <label for="wowEndpoint">✄1�7 WoW Endpoints</label>
+                    <label for="wowEndpoint">â1¤7 WoW Endpoints</label>
                     <input type="text" id="wowEndpoint" name="wowEndpoint" value="${wowEndpoint.replaceAll(",", " , ")}" required>
 				</div>
 				<div class="form-control">
-                    <label for="warpEndpoints">✄1�7 Warp Endpoints</label>
+                    <label for="warpEndpoints">â1¤7 Warp Endpoints</label>
                     <input type="text" id="warpEndpoints" name="warpEndpoints" value="${warpEndpoints.replaceAll(",", " , ")}" required>
 				</div>
 				<div class="form-control">
-                    <label for="warpPlusLicense">➄1�7 Warp+ License</label>
+                    <label for="warpPlusLicense">â1¤7 Warp+ License</label>
                     <input type="text" id="warpPlusLicense" name="warpPlusLicense" value="${warpPlusLicense}" 
                         pattern="^[a-zA-Z0-9]{8}-[a-zA-Z0-9]{8}-[a-zA-Z0-9]{8}$" 
                         title="Please enter a valid Warp Plus license in xxxxxxxx-xxxxxxxx-xxxxxxxx format">
 				</div>
                 <div class="form-control">
-                    <label>♻️ Warp Configs</label>
+                    <label>â»ï¸ Warp Configs</label>
                     <button id="refreshBtn" type="button" class="button" style="padding: 10px 0;" onclick="getWarpConfigs()">
                         Update<span class="material-symbols-outlined">autorenew</span>
                     </button>
                 </div>
                 <div class="form-control">
-                    <label style="line-height: 1.5;">🔎 Scan Endpoint</label>
+                    <label style="line-height: 1.5;">ð Scan Endpoint</label>
                     <button type="button" class="button" style="padding: 10px 0;" onclick="copyToClipboard('bash <(curl -fsSL https://raw.githubusercontent.com/Ptechgithub/warp/main/endip/install.sh)', false)">
                         Copy Script<span class="material-symbols-outlined">terminal</span>
                     </button>
                 </div>
                 <div class="form-control">
-					<label for="bestWarpInterval">🔄 Best Interval</label>
+					<label for="bestWarpInterval">ð Best Interval</label>
 					<input type="number" id="bestWarpInterval" name="bestWarpInterval" min="10" max="90" value="${bestWarpInterval}">
 				</div>
-                <h2>WARP PRO SETTINGS ⚙️</h2>
+                <h2>WARP PRO SETTINGS âï¸</h2>
                 <div class="form-control">
-					<label for="hiddifyNoiseMode">😵‍💄1�7 Hiddify Mode</label>
+					<label for="hiddifyNoiseMode">ðµâð1¤7 Hiddify Mode</label>
 					<input type="text" id="hiddifyNoiseMode" name="hiddifyNoiseMode" 
                         pattern="^(m[1-6]|h_[0-9A-Fa-f]{2}|g_([0-9A-Fa-f]{2}_){2}[0-9A-Fa-f]{2})$" 
                         title="Enter 'm1-m6', 'h_HEX', 'g_HEX_HEX_HEX' which HEX can be between 00 to ff"
                         value="${hiddifyNoiseMode}" required>
 				</div>
                 <div class="form-control">
-					<label for="nikaNGNoiseMode">😵‍💄1�7 NikaNG Mode</label>
+					<label for="nikaNGNoiseMode">ðµâð1¤7 NikaNG Mode</label>
 					<input type="text" id="nikaNGNoiseMode" name="nikaNGNoiseMode" 
                         pattern="^(none|quic|random|[0-9A-Fa-f]+)$" 
                         title="Enter 'none', 'quic', 'random', or any HEX string like 'ee0000000108aaaa'"
                         value="${nikaNGNoiseMode}" required>
 				</div>
                 <div class="form-control">
-					<label for="noiseCountMin">🎚︄1�7 Noise Count</label>
+					<label for="noiseCountMin">ðï¸1¤7 Noise Count</label>
 					<div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline;">
 						<input type="number" id="noiseCountMin" name="noiseCountMin"
     						value="${noiseCountMin}" required>
@@ -1860,7 +1860,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
 					</div>
 				</div>
                 <div class="form-control">
-					<label for="noiseSizeMin">📏 Noise Size</label>
+					<label for="noiseSizeMin">ð Noise Size</label>
 					<div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline;">
 						<input type="number" id="noiseSizeMin" name="noiseSizeMin"
     						value="${noiseSizeMin}" required>
@@ -1870,7 +1870,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
 					</div>
 				</div>
                 <div class="form-control">
-					<label for="noiseDelayMin">🕞 Noise Delay</label>
+					<label for="noiseDelayMin">ð Noise Delay</label>
 					<div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline;">
 						<input type="number" id="noiseDelayMin" name="noiseDelayMin"
     						value="${noiseDelayMin}" required>
@@ -1881,7 +1881,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
 				</div>
 				<div id="apply" class="form-control">
 					<div style="grid-column: 2; width: 100%; display: inline-flex;">
-						<input type="submit" id="applyButton" style="margin-right: 10px;" class="button disabled" value="APPLY SETTINGS 💥" form="configForm">
+						<input type="submit" id="applyButton" style="margin-right: 10px;" class="button disabled" value="APPLY SETTINGS ð¥" form="configForm">
                         <button type="button" id="resetSettings" style="background: none; margin: 0; border: none; cursor: pointer;">
                             <i class="fa fa-refresh fa-2x fa-border" style="border-radius: .2em;" aria-hidden="true"></i>
                         </button>
@@ -1889,7 +1889,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
 				</div>
 			</form>
             <hr>            
-			<h2>NORMAL SUB 🔗</h2>
+			<h2>NORMAL SUB ð</h2>
 			<div class="table-container">
 				<table id="normal-configs-table">
 					<tr>
@@ -2011,7 +2011,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
                     </tr>
 				</table>
 			</div>
-			<h2>FRAGMENT SUB ⛓️</h2>
+			<h2>FRAGMENT SUB âï¸</h2>
 			<div class="table-container">
                 <table id="frag-sub-table">
                     <tr>
@@ -2072,7 +2072,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
                     </tr>
                 </table>
             </div>
-            <h2>WARP SUB 🔗</h2>
+            <h2>WARP SUB ð</h2>
 			<div class="table-container">
 				<table id="normal-configs-table">
 					<tr>
@@ -2153,7 +2153,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
                     </tr>
 				</table>
 			</div>
-            <h2>WARP PRO SUB 🔗</h2>
+            <h2>WARP PRO SUB ð</h2>
 			<div class="table-container">
 				<table id="warp-pro-configs-table">
 					<tr>
@@ -2312,14 +2312,14 @@ async function renderHomePage (env, hostName, fragConfigs) {
                 qrcodeContainer.lastElementChild.remove();
             });
             resetSettings.addEventListener('click', async () => {
-                const confirmReset = confirm('⚠️ Are you sure?');
+                const confirmReset = confirm('â ï¸ Are you sure?');
                 if(!confirmReset) return;
                 const formData = new FormData();
                 formData.append('resetSettings', 'true');
                 try {
                     document.body.style.cursor = 'wait';
                     const refreshButtonVal = refreshBtn.innerHTML;
-                    refreshBtn.innerHTML = '⌄1�7 Loading...';
+                    refreshBtn.innerHTML = 'â1¤7 Loading...';
 
                     const response = await fetch('/panel', {
                         method: 'POST',
@@ -2330,12 +2330,12 @@ async function renderHomePage (env, hostName, fragConfigs) {
                     document.body.style.cursor = 'default';
                     refreshBtn.innerHTML = refreshButtonVal;
                     if (response.ok) {
-                        alert('✄1�7 Panel settings reset to default successfully! 😎');
+                        alert('â1¤7 Panel settings reset to default successfully! ð');
                         window.location.reload(true);
                     } else {
                         const errorMessage = await response.text();
                         console.error(errorMessage, response.status);
-                        alert('⚠️ An error occured, Please try again!\\n⛄1�7 ' + errorMessage);
+                        alert('â ï¸ An error occured, Please try again!\\nâ1¤7 ' + errorMessage);
                     }         
                 } catch (error) {
                     console.error('Error:', error);
@@ -2374,7 +2374,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
         const getWarpConfigs = async () => {
             const license = document.getElementById('warpPlusLicense').value;
             if (license !== warpPlusLicense) {
-                alert('⚠️ First APPLY SETTINGS and then update Warp configs!');
+                alert('â ï¸ First APPLY SETTINGS and then update Warp configs!');
                 return false;
             }
             const refreshBtn = document.getElementById('refreshBtn');
@@ -2386,7 +2386,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
             try {
                 document.body.style.cursor = 'wait';
                 const refreshButtonVal = refreshBtn.innerHTML;
-                refreshBtn.innerHTML = '⌄1�7 Loading...';
+                refreshBtn.innerHTML = 'â1¤7 Loading...';
 
                 const response = await fetch('/warp-keys', {
                     method: 'POST',
@@ -2400,11 +2400,11 @@ async function renderHomePage (env, hostName, fragConfigs) {
                 document.body.style.cursor = 'default';
                 refreshBtn.innerHTML = refreshButtonVal;
                 if (response.ok) {
-                    ${isWarpPlus} ? alert('✄1�7 Warp configs upgraded to PLUS successfully! 😎') : alert('✄1�7 Warp configs updated successfully! 😎');
+                    ${isWarpPlus} ? alert('â1¤7 Warp configs upgraded to PLUS successfully! ð') : alert('â1¤7 Warp configs updated successfully! ð');
                 } else {
                     const errorMessage = await response.text();
                     console.error(errorMessage, response.status);
-                    alert('⚠️ An error occured, Please try again!\\n⛄1�7 ' + errorMessage);
+                    alert('â ï¸ An error occured, Please try again!\\nâ1¤7 ' + errorMessage);
                 }         
             } catch (error) {
                 console.error('Error:', error);
@@ -2424,7 +2424,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
             if (activePortsNo === 0) {
                 event.preventDefault();
                 event.target.checked = !event.target.checked;
-                alert("⛄1�7 At least one port should be selected! 🫤");
+                alert("â1¤7 At least one port should be selected! ð«¤");
                 activePortsNo = 1;
                 defaultHttpsPorts.includes(event.target.name) && activeHttpsPortsNo++;
                 return false;
@@ -2433,7 +2433,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
             if (activeHttpsPortsNo === 0) {
                 event.preventDefault();
                 event.target.checked = !event.target.checked;
-                alert("⛄1�7 At least one TLS(https) port should be selected! 🫤");
+                alert("â1¤7 At least one TLS(https) port should be selected! ð«¤");
                 activeHttpsPortsNo = 1;
                 return false;
             }
@@ -2450,7 +2450,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
             if (activeProtocols === 0) {
                 event.preventDefault();
                 event.target.checked = !event.target.checked;
-                alert("⛄1�7 At least one Protocol should be selected! 🫤");
+                alert("â1¤7 At least one Protocol should be selected! ð«¤");
                 activeProtocols = 1;
                 return false;
             }
@@ -2483,7 +2483,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
 			textarea.select();
 			document.execCommand('copy');
 			document.body.removeChild(textarea);
-			alert('📋 Copied to clipboard:\\n\\n' +  value);
+			alert('ð Copied to clipboard:\\n\\n' +  value);
 		}
 
         const applySettings = async (event, configForm) => {
@@ -2542,39 +2542,39 @@ async function renderHomePage (env, hostName, fragConfigs) {
             });
     
             if (invalidIPs.length) {
-                alert('⛄1�7 Invalid IPs or Domains 🫤\\n\\n' + invalidIPs.map(ip => '⚠️ ' + ip).join('\\n'));
+                alert('â1¤7 Invalid IPs or Domains ð«¤\\n\\n' + invalidIPs.map(ip => 'â ï¸ ' + ip).join('\\n'));
                 return false;
             }
             
             if (invalidEndpoints.length) {
-                alert('⛄1�7 Invalid endpoint 🫤\\n\\n' + invalidEndpoints.map(endpoint => '⚠️ ' + endpoint).join('\\n'));
+                alert('â1¤7 Invalid endpoint ð«¤\\n\\n' + invalidEndpoints.map(endpoint => 'â ï¸ ' + endpoint).join('\\n'));
                 return false;
             }
 
             if (lengthMin >= lengthMax || intervalMin > intervalMax || noiseCountMin > noiseCountMax || noiseSizeMin > noiseSizeMax || noiseDelayMin > noiseDelayMax) {
-                alert('⛄1�7 Minimum should be smaller or equal to Maximum! 🫤');               
+                alert('â1¤7 Minimum should be smaller or equal to Maximum! ð«¤');               
                 return false;
             }
 
             if (!(isVless && (hasSecurity && validSecurityType || !hasSecurity) && validTransmission) && !isSocksHttp && chainProxy) {
-                alert('⛄1�7 Invalid Config! 🫤 \\n - The chain proxy should be VLESS, Socks or Http!\\n - VLESS transmission should be GRPC,WS or TCP\\n - VLESS security should be TLS,Reality or None\\n - socks or http should be like:\\n + (socks or http)://user:pass@host:port\\n + (socks or http)://host:port');               
+                alert('â1¤7 Invalid Config! ð«¤ \\n - The chain proxy should be VLESS, Socks or Http!\\n - VLESS transmission should be GRPC,WS or TCP\\n - VLESS security should be TLS,Reality or None\\n - socks or http should be like:\\n + (socks or http)://user:pass@host:port\\n + (socks or http)://host:port');               
                 return false;
             }
 
             if (isVless && securityType === 'tls' && vlessPort !== '443') {
-                alert('⛄1�7 VLESS TLS port can be only 443 to be used as a proxy chain! 🫤');               
+                alert('â1¤7 VLESS TLS port can be only 443 to be used as a proxy chain! ð«¤');               
                 return false;
             }
 
             if (isCustomCdn && !(customCdnAddrs && customCdnHost && customCdnSni)) {
-                alert('⛄1�7 All "Custom" fields should be filled! 🫤');               
+                alert('â1¤7 All "Custom" fields should be filled! ð«¤');               
                 return false;
             }
 
             try {
                 document.body.style.cursor = 'wait';
                 const applyButtonVal = applyButton.value;
-                applyButton.value = '⌄1�7 Loading...';
+                applyButton.value = 'â1¤7 Loading...';
 
                 const response = await fetch('/panel', {
                     method: 'POST',
@@ -2586,12 +2586,12 @@ async function renderHomePage (env, hostName, fragConfigs) {
                 applyButton.value = applyButtonVal;
 
                 if (response.ok) {
-                    alert('✄1�7 Parameters applied successfully 😎');
+                    alert('â1¤7 Parameters applied successfully ð');
                     window.location.reload(true);
                 } else {
                     const errorMessage = await response.text();
                     console.error(errorMessage, response.status);
-                    alert('⚠️ Session expired! Please login again.');
+                    alert('â ï¸ Session expired! Please login again.');
                     window.location.href = '/login';
                 }           
             } catch (error) {
@@ -2637,7 +2637,7 @@ async function renderHomePage (env, hostName, fragConfigs) {
             const isLongEnough = newPassword.length >= 8;
 
             if (!(hasCapitalLetter && hasNumber && isLongEnough)) {
-                passwordError.textContent = '⚠️ Password must contain at least one capital letter, one number, and be at least 8 characters long.';
+                passwordError.textContent = 'â ï¸ Password must contain at least one capital letter, one number, and be at least 8 characters long.';
                 return false;
             }
                     
@@ -2654,17 +2654,17 @@ async function renderHomePage (env, hostName, fragConfigs) {
                 if (response.ok) {
                     modal.style.display = "none";
                     document.body.style.overflow = "";
-                    alert("✄1�7 Password changed successfully! 👍");
+                    alert("â1¤7 Password changed successfully! ð");
                     window.location.href = '/login';
                 } else if (response.status === 401) {
                     const errorMessage = await response.text();
-                    passwordError.textContent = '⚠️ ' + errorMessage;
+                    passwordError.textContent = 'â ï¸ ' + errorMessage;
                     console.error(errorMessage, response.status);
-                    alert('⚠️ Session expired! Please login again.');
+                    alert('â ï¸ Session expired! Please login again.');
                     window.location.href = '/login';
                 } else {
                     const errorMessage = await response.text();
-                    passwordError.textContent = '⚠️ ' + errorMessage;
+                    passwordError.textContent = 'â ï¸ ' + errorMessage;
                     console.error(errorMessage, response.status);
                     return false;
                 }
@@ -2750,7 +2750,7 @@ async function renderLoginPage () {
     </head>
     <body>
         <div class="container">
-            <h1>POORIA Panel <span style="font-size: smaller;">${panelVersion}</span> 💦</h1>
+            <h1>POORIA Panel <span style="font-size: smaller;">${panelVersion}</span> ð¦</h1>
             <div class="form-container">
                 <h2>User Login</h2>
                 <form id="loginForm">
@@ -2780,7 +2780,7 @@ async function renderLoginPage () {
                 if (response.ok) {
                     window.location.href = '/panel';
                 } else {
-                    passwordError.textContent = '⚠️ Wrong Password!';
+                    passwordError.textContent = 'â ï¸ Wrong Password!';
                     const errorMessage = await response.text();
                     console.error('Login failed:', errorMessage);
                 }
@@ -2821,13 +2821,13 @@ function renderErrorPage (message, error, refer) {
 
     <body>
         <div id="error-container">
-            <h1>POORIA Panel <span style="font-size: smaller;">${panelVersion}</span> �7�0</h1>
+            <h1>POORIA Panel <span style="font-size: smaller;">${panelVersion}</span> 7±0</h1>
             <div id="error-message">
                 <h2>${message} ${refer 
                     ? 'Please try again or refer to <a href="https://github.com/bia-pain-bache/BPB-Worker-Panel/blob/main/README.md">documents</a>' 
                     : ''}
                 </h2>
-                <p><b>${error ? `⚠️ ${error}` : ''}</b></p>
+                <p><b>${error ? `â ï¸ ${error}` : ''}</b></p>
             </div>
         </div>
     </body>
@@ -2941,7 +2941,7 @@ async function buildWarpOutbounds (env, client, proxySettings, warpConfigs) {
 
         if (client === 'singbox' || client === 'hiddify') {
             let singboxOutbound = buildSingboxWarpOutbound(
-                client === 'hiddify' ? `💦 Warp Pro ${index + 1} 🇮🇷` : `💦 Warp ${index + 1} 🇮🇷`, 
+                client === 'hiddify' ? `ð¦ Warp Pro ${index + 1} ð®ð·` : `ð¦ Warp ${index + 1} ð®ð·`, 
                 warpIPv6, 
                 privateKey, 
                 publicKey, 
@@ -2961,7 +2961,7 @@ async function buildWarpOutbounds (env, client, proxySettings, warpConfigs) {
         }
 
         if (client === 'clash') {
-            let clashOutbound = buildClashWarpOutbound(`💦 Warp ${index + 1} 🇮🇷`, warpIPv6, privateKey, publicKey, endpoint, reserved, '');
+            let clashOutbound = buildClashWarpOutbound(`ð¦ Warp ${index + 1} ð®ð·`, warpIPv6, privateKey, publicKey, endpoint, reserved, '');
             warpOutbounds.push(clashOutbound);
         }
 
@@ -3020,8 +3020,8 @@ async function buildWoWOutbounds (env, client, proxySettings, warpConfigs) {
                     i === 1
                     ? `warp-ir_${index + 1}` 
                     : client === 'hiddify' 
-                        ? `💦 WoW Pro ${index + 1} 🌍` 
-                        : `💦 WoW ${index + 1} 🌍` , 
+                        ? `ð¦ WoW Pro ${index + 1} ð` 
+                        : `ð¦ WoW ${index + 1} ð` , 
                     warpIPv6, 
                     privateKey, 
                     publicKey, 
@@ -3042,7 +3042,7 @@ async function buildWoWOutbounds (env, client, proxySettings, warpConfigs) {
 
             if (client === 'clash') {
                 let clashOutbound = buildClashWarpOutbound(
-                    i === 1 ? `warp-ir_${index + 1}` : `💦 WoW ${index + 1} 🌍`, 
+                    i === 1 ? `warp-ir_${index + 1}` : `ð¦ WoW ${index + 1} ð`, 
                     warpIPv6, 
                     privateKey, 
                     publicKey, 
@@ -3473,7 +3473,7 @@ async function buildWorkerLessConfig(remoteDNS, localDNS, lengthMin,  lengthMax,
     delete fakeOutbound.streamSettings.sockopt;
     fakeOutbound.streamSettings.wsSettings.path = '/';
     let fragConfig = structuredClone(xrayConfigTemp);
-    fragConfig.remarks  = '�7�0POORIA F - WorkerLess �7�0'
+    fragConfig.remarks  = '7±0POORIA F - WorkerLess 7±0'
     fragConfig.dns = await buildXrayDNSObject('https://cloudflare-dns.com/dns-query', localDNS, blockAds, bypassIran, bypassChina, bypassLAN, blockPorn, true);
     fragConfig.outbounds[0].settings.domainStrategy = 'UseIP';
     fragConfig.outbounds[0].settings.fragment.length = `${lengthMin}-${lengthMax}`;
@@ -3611,7 +3611,7 @@ async function getFragmentConfigs(env, hostName) {
     }
     
     let bestPing = structuredClone(balancerConfig);
-    bestPing.remarks = '�7�0POORIA F - Best Ping �7�0';
+    bestPing.remarks = '7±0POORIA F - Best Ping 7±0';
     bestPing.outbounds = [...outbounds, ...bestPing.outbounds];
     
     if (chainProxy) {
@@ -3621,7 +3621,7 @@ async function getFragmentConfigs(env, hostName) {
     }
 
     let bestFragment = structuredClone(balancerConfig);
-    bestFragment.remarks = '�7�0POORIA F - Best Fragment POORIA';
+    bestFragment.remarks = '7±0POORIA F - Best Fragment POORIA';
     bestFragment.outbounds.splice(0,1);
     bestFragValues.forEach( (fragLength, index) => {
         bestFragment.outbounds.push({
@@ -3689,7 +3689,7 @@ async function getXrayWarpConfigs (env, client) {
     xrayWarpConfig.routing.rules[xrayWarpConfig.routing.rules.length - 1].outboundTag = 'warp';
     delete xrayWarpConfig.observatory;
     delete xrayWarpConfig.routing.balancers;
-    xrayWarpBestPing.remarks = client === 'nikang' ? '�7�0POORIA - Warp Pro Best Ping �7�0' : '�7�0 POORIAWarp Best Ping �7�0';
+    xrayWarpBestPing.remarks = client === 'nikang' ? '7±0POORIA - Warp Pro Best Ping 7±0' : '7±0 POORIAWarp Best Ping 7±0';
     xrayWarpBestPing.dns = await buildXrayDNSObject('1.1.1.1', localDNS, blockAds, bypassIran, bypassChina, bypassLAN, blockPorn, false);
     xrayWarpBestPing.routing.rules = buildXrayRoutingRules(localDNS, blockAds, bypassIran, blockPorn, bypassLAN, bypassChina, blockUDP443, false, true, false, true);
     xrayWarpBestPing.outbounds.splice(0,1);
@@ -3705,7 +3705,7 @@ async function getXrayWarpConfigs (env, client) {
     xrayWarpOutbounds.forEach((outbound, index) => {
         xrayWarpConfigs.push({
             ...xrayWarpConfig,
-            remarks: client === 'nikang' ? `�7�0POORIA - Warp Pro ${index + 1} �7�0` : `�7�0POORIA - Warp ${index + 1} �7�0`,
+            remarks: client === 'nikang' ? `7±0POORIA - Warp Pro ${index + 1} 7±0` : `7±0POORIA - Warp ${index + 1} 7±0`,
             outbounds: [{...outbound, tag: 'warp'}, ...xrayWarpConfig.outbounds]
         });
     });
@@ -3713,7 +3713,7 @@ async function getXrayWarpConfigs (env, client) {
     xrayWoWOutbounds.forEach((outbound, index) => {
         if (outbound.tag.includes('warp-out')) {
             let xrayWoWConfig = structuredClone(xrayWoWConfigTemp);
-            xrayWoWConfig.remarks = client === 'nikang' ? `�7�0 POORIA - WoW Pro ${index/2 + 1} �7�0` : `�7�0 POORIA - WoW ${index/2 + 1} �7�0`;
+            xrayWoWConfig.remarks = client === 'nikang' ? `7±0 POORIA - WoW Pro ${index/2 + 1} 7±0` : `7±0 POORIA - WoW ${index/2 + 1} 7±0`;
             xrayWoWConfig.outbounds = [{...xrayWoWOutbounds[index]}, {...xrayWoWOutbounds[index + 1]}, ...xrayWoWConfig.outbounds];
             xrayWoWConfig.routing.rules[xrayWoWConfig.routing.rules.length - 1].outboundTag = outbound.tag;
             xrayWarpConfigs.push(xrayWoWConfig);
@@ -3721,7 +3721,7 @@ async function getXrayWarpConfigs (env, client) {
     });
 
     let xrayWoWBestPing = structuredClone(xrayWarpBestPing);
-    xrayWoWBestPing.remarks = client === 'nikang' ? '�7�0 POORIA - WoW Pro Best Ping �7�0' : '�7�0 POORIA - WoW Best Ping �7�0';
+    xrayWoWBestPing.remarks = client === 'nikang' ? '7±0 POORIA - WoW Pro Best Ping 7±0' : '7±0 POORIA - WoW Best Ping 7±0';
     xrayWoWBestPing.routing.balancers[0].selector = ['warp-out'];
     xrayWoWBestPing.observatory.subjectSelector = ['warp-out'];
     xrayWarpBestPing.outbounds = [...xrayWarpOutbounds, ...xrayWarpBestPing.outbounds];
@@ -3785,7 +3785,7 @@ function buildClashRoutingRules (localDNS, blockAds, bypassIran, bypassChina, bl
     !isWarp && rules.push('NETWORK,udp,REJECT');
     blockAds && rules.push('GEOSITE,category-ads-all,REJECT', 'GEOSITE,category-ads-ir,REJECT');
     blockPorn && rules.push('GEOSITE,category-porn,REJECT');
-    rules.push('MATCH,✄1�7 Selector');
+    rules.push('MATCH,â1¤7 Selector');
 
     return rules;
 }
@@ -3883,7 +3883,7 @@ function buildClashChainOutbound(chainProxyParams) {
 
     const { hostName, port, uuid, flow, security, type, sni, fp, alpn, pbk, sid, spx, headerType, host, path, authority, serviceName, mode } = chainProxyParams;
     let chainOutbound = {
-        "name": "💦 Chain Best Ping 💥",
+        "name": "ð¦ Chain Best Ping ð¥",
         "type": "vless",
         "server": hostName,
         "port": +port,
@@ -3891,7 +3891,7 @@ function buildClashChainOutbound(chainProxyParams) {
         "uuid": uuid,
         "flow": flow,
         "network": type,
-        "dialer-proxy": "💦 Best Ping 💥"
+        "dialer-proxy": "ð¦ Best Ping ð¥"
     };
 
     if (security === 'tls') {
@@ -4088,14 +4088,14 @@ async function getClashConfig (env, hostName, isWarp) {
 
     config.proxies = outbounds;
     config['proxy-groups'][0].proxies = isWarp
-        ? ['💦 Warp Best Ping 🚀', '💦 WoW Best Ping 🚀', ...warpOutboundsRemarks, ...wowOutboundRemarks ]
-        : ['💦 Best Ping 💥', ...outboundsRemarks ];
+        ? ['ð¦ Warp Best Ping ð', 'ð¦ WoW Best Ping ð', ...warpOutboundsRemarks, ...wowOutboundRemarks ]
+        : ['ð¦ Best Ping ð¥', ...outboundsRemarks ];
 
     config['proxy-groups'][1].proxies = isWarp ? warpOutboundsRemarks : outboundsRemarks;
-    config['proxy-groups'][1].name = isWarp ? `💦 Warp Best Ping 🚀`: `💦 Best Ping 💥`,
+    config['proxy-groups'][1].name = isWarp ? `ð¦ Warp Best Ping ð`: `ð¦ Best Ping ð¥`,
 
     isWarp && config["proxy-groups"].push({
-        "name": "💦 WoW Best Ping 🚀",
+        "name": "ð¦ WoW Best Ping ð",
         "type": "url-test",
         "url": "https://www.gstatic.com/generate_204",
         "interval": +bestWarpInterval,
@@ -4568,15 +4568,15 @@ async function getSingboxConfig (env, hostName, client, isWarp, isFragment) {
         const WOWOutbounds = await buildWoWOutbounds(env, client, proxySettings, warpConfigs);
         config.dns.servers[0].address = '1.1.1.1';
         config.outbounds[0].outbounds = client === 'hiddify'
-            ? ["💦 Warp Pro Best Ping 🚀", "💦 WoW Pro Best Ping 🚀"]
-            : ["💦 Warp Best Ping 🚀", "💦 WoW Best Ping 🚀"];
+            ? ["ð¦ Warp Pro Best Ping ð", "ð¦ WoW Pro Best Ping ð"]
+            : ["ð¦ Warp Best Ping ð", "ð¦ WoW Best Ping ð"];
         config.outbounds.splice(2, 0, structuredClone(config.outbounds[1]));
         config.outbounds[1].tag = client === 'hiddify' 
-            ? "💦 Warp Pro Best Ping 🚀"
-            : "💦 Warp Best Ping 🚀";
+            ? "ð¦ Warp Pro Best Ping ð"
+            : "ð¦ Warp Best Ping ð";
         config.outbounds[2].tag = client === 'hiddify'
-            ? "💦 WoW Pro Best Ping 🚀"
-            : "💦 WoW Best Ping 🚀";
+            ? "ð¦ WoW Pro Best Ping ð"
+            : "ð¦ WoW Best Ping ð";
         config.outbounds.push(...warpOutbounds, ...WOWOutbounds);
         warpOutbounds.forEach(outbound => {
             config.outbounds[0].outbounds.push(outbound.tag);
@@ -4725,7 +4725,7 @@ async function getNormalConfigs(env, hostName, client) {
     });
 
     if (outProxy) {
-        let chainRemark = `#${encodeURIComponent('💦 Chain proxy 🔗')}`;
+        let chainRemark = `#${encodeURIComponent('ð¦ Chain proxy ð')}`;
         if (outProxy.startsWith('socks') || outProxy.startsWith('http')) {
             const regex = /^(?:socks|http):\/\/([^@]+)@/;
             const isUserPass = outProxy.match(regex);
@@ -4876,7 +4876,7 @@ const singboxConfigTemp = {
                 address: "",
                 address_resolver: "dns-direct",
                 strategy: "prefer_ipv4",
-                detour: "💦 Best Ping 💥",
+                detour: "ð¦ Best Ping ð¥",
                 tag: "dns-remote"
             },
             {
@@ -4927,11 +4927,11 @@ const singboxConfigTemp = {
         {
             type: "selector",
             tag: "proxy",
-            outbounds: ["💦 Best Ping 💥"]
+            outbounds: ["ð¦ Best Ping ð¥"]
         },
         {
             type: "urltest",
-            tag: "💦 Best Ping 💥",
+            tag: "ð¦ Best Ping ð¥",
             outbounds: [],
             url: "https://www.gstatic.com/generate_204",
             interval: "30s",
@@ -5019,7 +5019,7 @@ const clashConfigTemp = {
     "proxies": [],
     "proxy-groups": [
         {
-            "name": "✄1�7 Selector",
+            "name": "â1¤7 Selector",
             "type": "select",
             "proxies": []
         },
