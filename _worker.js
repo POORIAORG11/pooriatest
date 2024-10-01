@@ -3689,7 +3689,7 @@ async function getXrayWarpConfigs (env, client) {
     xrayWarpConfig.routing.rules[xrayWarpConfig.routing.rules.length - 1].outboundTag = 'warp';
     delete xrayWarpConfig.observatory;
     delete xrayWarpConfig.routing.balancers;
-    xrayWarpBestPing.remarks = client === 'nikang' ? '7±0POORIA - Warp Pro Best Ping 7±0' : '7±0 POORIAWarp Best Ping 7±0';
+    xrayWarpBestPing.remarks = client === 'nikang' ? '☆POORIA - Warp Pro Best Ping ☆' : 'POORIAWarp Best Ping ☆';
     xrayWarpBestPing.dns = await buildXrayDNSObject('1.1.1.1', localDNS, blockAds, bypassIran, bypassChina, bypassLAN, blockPorn, false);
     xrayWarpBestPing.routing.rules = buildXrayRoutingRules(localDNS, blockAds, bypassIran, blockPorn, bypassLAN, bypassChina, blockUDP443, false, true, false, true);
     xrayWarpBestPing.outbounds.splice(0,1);
@@ -3713,7 +3713,7 @@ async function getXrayWarpConfigs (env, client) {
     xrayWoWOutbounds.forEach((outbound, index) => {
         if (outbound.tag.includes('warp-out')) {
             let xrayWoWConfig = structuredClone(xrayWoWConfigTemp);
-            xrayWoWConfig.remarks = client === 'nikang' ? `7±0 POORIA - WoW Pro ${index/2 + 1} 7±0` : `7±0 POORIA - WoW ${index/2 + 1} 7±0`;
+            xrayWoWConfig.remarks = client === 'nikang' ? `☆ POORIA - WoW Pro ${index/2 + 1} ☆` : `☆ POORIA - WoW ${index/2 + 1} ☆`;
             xrayWoWConfig.outbounds = [{...xrayWoWOutbounds[index]}, {...xrayWoWOutbounds[index + 1]}, ...xrayWoWConfig.outbounds];
             xrayWoWConfig.routing.rules[xrayWoWConfig.routing.rules.length - 1].outboundTag = outbound.tag;
             xrayWarpConfigs.push(xrayWoWConfig);
@@ -3721,7 +3721,7 @@ async function getXrayWarpConfigs (env, client) {
     });
 
     let xrayWoWBestPing = structuredClone(xrayWarpBestPing);
-    xrayWoWBestPing.remarks = client === 'nikang' ? '7±0 POORIA - WoW Pro Best Ping 7±0' : '7±0 POORIA - WoW Best Ping 7±0';
+    xrayWoWBestPing.remarks = client === 'nikang' ? '☆ POORIA - WoW Pro Best Ping ☆' : '☆ POORIA - WoW Best Ping ☆';
     xrayWoWBestPing.routing.balancers[0].selector = ['warp-out'];
     xrayWoWBestPing.observatory.subjectSelector = ['warp-out'];
     xrayWarpBestPing.outbounds = [...xrayWarpOutbounds, ...xrayWarpBestPing.outbounds];
